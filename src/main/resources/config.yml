@@ -1,0 +1,35 @@
+#Astatine Online
+link_setting:
+  minelist: 'https://minelist.kr/servers/astn.kr:1229'
+  discord: 'https://discord.com/invite/5UtVAMJUZe'
+  notion: 'https://jaxple.notion.site/Astn-kr-e000a5d52aaa4611a63fd62629ea0f36?pvs=4'
+
+world_setting:
+  motd: 'ASTATINE ONLINE'
+
+message:
+  commandHelp: '[/help]를 치시거나, Shift + F(Swap) 키를 누르면 메뉴가 열립니다!'
+  commandCommunity: '/커뮤니티'
+  mineListVote: '[클릭] > 마인리스트 추천'
+  discordInvite: '[클릭] > 디스코드 참가'
+  serverGuideNotion: '[클릭] > 서버 플레이 가이드'
+  commandServerTip: '/tip'
+  heartTip: '체력은 하트 10칸을 1줄로 보고, 최대 3줄(30하트), 최소 2하트입니다.'
+  extraHeartTip: '보스 처치 시 추가 체력: 엔더 드래곤 +1하트, 위더 +3하트, 워든 +2하트.'
+  steelLifeTip: '플레이어 처치 시 1하트 약탈, 약탈된 플레이어는 1하트를 잃습니다.'
+  raidTip: '습격 발생시 해당 좌표 지점이 공지됩니다.'
+  weaponTip: '근접무기를 양손에 들시 공격 속도가 매우 빨라 집니다.'
+  explosiveTip: '모든 기존의 폭팔을 조심하세요. 크리퍼, 가스트, 위더, TNT 모든게 "매우" 위험 합니다.'
+  CommandTip: '/명령어'
+  commandFly: '/fly - 플라이는 항상 활성화 되어 있으며 필요시 입력해주세요.'
+  commandHat: '/hat - 손에 든 아이템을 머리에 씁니다.'
+  commandSwap: '/swap - 손에 든 아이템을 다른 손으로 옮깁니다.'
+  commandTotem: '/totem - 인벤토리의 토템을 모두 합칩니다.'
+  commandEnhance: '/강화 - 강화창을 열거나 닫습니다.'
+  commandAnnouncing: '/공지 - 공지사항 채팅을 끄거나 킵니다.'
+  commandTpa: '/tpa, /tpahere, /tpatoggle - tpa를 사용합니다.'
+  commandShop: '/shop 으로 상점을 열 수 있습니다.'
+  commandBalance: '/balance, /money 로 현재 계좌의 금액을 확인 할 수 있습니다.'
+  commandParty: '/party 로 파티생성 관련 명령어를 확인할 수 있습니다.'
+  commandSkill: '/스킬명 예를들면 "/검술" 로 스킬레벨을 확인할 수 있습니다.'
+  commandPlayTime: '/playtime 로 플레이타임을 확인할 수 있습니다.'

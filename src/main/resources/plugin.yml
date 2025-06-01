@@ -1,0 +1,126 @@
+name: R10
+version: '1.0.0'
+main: org.Astatine.r10.R10
+api-version: '1.21.4'
+authors: [JAXPLE]
+website: https://jaxple.notion.site/Astn-kr-e000a5d52aaa4611a63fd62629ea0f36?pvs=4
+
+permissions:
+  SpeedLimit.bypass:
+    description: Bypass the speed limit
+    default: op
+  R10.DataControl:
+    description: R10 Project에 모든 Data를 Export, Import 할 수 있습니다.
+    default: op
+  R10.ItemControl:
+    description: R10 Project에 모든 Item 관련 명령어를 수행할 수 있습니다.
+    default: op
+
+commands:
+  회사설립:
+    description: 회사를 생성합니다.
+    permission: R10.DataControl
+  회사폐업:
+    description: 회사를 폐업합니다.
+    permission: R10.DataControl
+  소속회사조회:
+    description: 소속된 회사를 조회합니다.
+    permission: R10.DataControl
+  회사채용:
+    description: 회사를 채용합니다.
+    permission: R10.DataControl
+  회사해고:
+    description: 회사를 해고합니다.
+    permission: R10.DataControl
+  회사승진:
+    description: 회사를 승진합니다.
+    permission: R10.DataControl
+  회사강등:
+    description: 회사를 강등합니다.
+    permission: R10.DataControl
+  회사예치금입금:
+    description: 회사 예치금을 입금합니다.
+    permission: R10.DataControl
+  회사자금출금:
+    description: 회사 자금을 출금합니다.
+    permission: R10.DataControl
+  회사급여설정:
+    description: 회사 급여를 설정합니다.
+    permission: R10.DataControl 
+    
+  astn:
+    description: Astn.kr 최신버전 무정부 야생약탈 서버
+  help:
+    description: 서버 도움말을 출력합니다.
+  playtime:
+    description: 플레이시간을 확인합니다.
+
+  hat:
+    description: 손에 든 아이템을 머리에 착용합니다.
+  moderator:
+    description: 특정 유저에게 관리자 권한부여
+  swap:
+    description: 손에 든 아이템을 다른 손으로 옮깁니다.
+  totem:
+    description: 토템을 합칩니다.
+  fly:
+    description: 하늘을 납니다.
+  자랑하기:
+    description: 손에 들고 있는 아이템을 자랑합니다.
+
+  mainMenuTabOpen:
+    description: MainMenu 를 엽니다.
+  gsitTabOpen:
+    description: Gsit 메뉴를 엽니다.
+  tpaTabOpen:
+    description: TPA 메뉴를 엽니다.
+  homeTabOpen:
+    description: Home 메뉴를 엽니다.
+  강화:
+    description: 강화창을 엽니다.
+  공지:
+    description: 공지를 활/비활성화 합니다.
+  명령어:
+    description: 사용가능한 명령어를 확인합니다.
+  서버팁:
+    description: 플레이 팁을 보여줍니다.
+  커뮤니티:
+    description: 커뮤니티 링크를 보여줍니다.
+
+  ExportDataFile:
+    description: R10프로젝트에 모든 Object가 Export 됩니다.
+    permission: R10.DataControl
+  configDataFileReload:
+    description: config 을 Reload 합니다.
+    permission: R10.DataControl
+  RemoveDuplicateData:
+    description: UserData에 중복 이름을 삭제합니다.
+    permission: R10.DataControl
+
+  vo:
+    description: DebugValue
+    permission: R10.ItemControl
+  vi:
+    description: DebugItemValue
+    permission: R10.ItemControl
+
+  motd:
+    description: Motd를 설정합니다.
+    permission: R10.DataControl
+  god:
+    description: 무적을 활성화 합니다.
+    permission: R10.DataControl
+  setHealth:
+    description: 체력을 초기화 합니다.
+    permission: R10.DataControl
+  setKillCount:
+    description: 킬 카운트를 설정합니다.
+    permission: R10.ItemControl
+
+  enhance:
+    description: 강화를 설정합니다.
+    permission: R10.ItemControl
+  bindItem:
+    description: 영구 아이템을 설정합니다.
+    permission: R10.ItemControl
+  
