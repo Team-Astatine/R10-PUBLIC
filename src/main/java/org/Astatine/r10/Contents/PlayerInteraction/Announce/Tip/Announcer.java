@@ -67,20 +67,24 @@ public class Announcer extends StringComponentExchanger {
         long delay = 0;
         long interval = 5;
         AsyncTaskRunner.getThreadPool().addSchedulingTaskMin(() -> {
-                    List<Player> players = new ArrayList<>(Bukkit.getOnlinePlayers());
-                    if (players.isEmpty())
-                        return;
+                List<Player> players = new ArrayList<>(Bukkit.getOnlinePlayers());
+                if (players.isEmpty())
+                    return;
 
-                    players.forEach(player -> {
-                        User user = new UserHandler().readUser(player.getUniqueId());
-                        if (user.announcingSkip())
-                            Bukkit.getScheduler().runTask(
-                                    R10.getPlugin(R10.class),
-                                    ()-> player.performCommand("help"));
-                    });
-                },
-                delay,
-                interval
+                players.forEach(player -> {
+                    User user = new UserHandler().readUser(player.getUniqueId());
+                    if (user.announcingSkip())
+                        Bukkit.getScheduler().runTask(
+                                R10.getPlugin(R10.class),
+                                ()-> {
+                                    player.performCommand("help");
+                                    player.performCommand("커뮤니티");
+                                });
+                        }
+                );
+            },
+            delay,
+            interval
         );
     }
 }

@@ -6,7 +6,7 @@ import org.bukkit.entity.Projectile;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.inventory.ItemStack;
 import org.Astatine.r10.Contents.Enhance.Enumeration.Weapon.LongRange;
-import org.Astatine.r10.Contents.Enhance.Interface.EnhanceUtil;
+import org.Astatine.r10.Contents.Enhance.Processor.EnhanceUtil;
 import org.Astatine.r10.Contents.EventRegister;
 
 public class EnhanceLongRangeWeaponHurtEvent implements EventRegister {

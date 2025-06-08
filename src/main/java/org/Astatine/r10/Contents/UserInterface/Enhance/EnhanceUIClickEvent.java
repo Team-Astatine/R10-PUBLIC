@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.Astatine.r10.Enumeration.Type.ColorType;
+import org.Astatine.r10.Util.Function.Emoji;
 import org.Astatine.r10.Contents.Enhance.Enumeration.Armour.ArmourList;
 import org.Astatine.r10.Contents.Enhance.Enumeration.Scroll.ProtectScrollList;
 import org.Astatine.r10.Contents.Enhance.Enumeration.Scroll.ScrollList;
@@ -108,9 +109,11 @@ public class EnhanceUIClickEvent extends UIUtils implements EventRegister {
     private boolean isAllowedEnhanceItem() {
         String comment = "";
 
-        if (ObjectUtils.isEmpty(this.enhanceItem) || this.enhanceItem.isEmpty()) comment = "무기를 올려주세요.";
+        if (ObjectUtils.isEmpty(this.enhanceItem) || this.enhanceItem.isEmpty()) 
+            comment = "무기를 올려주세요.";
 
-        else if (ObjectUtils.isEmpty(this.scrollStuff) || this.scrollStuff.isEmpty()) comment = "강화 주문서가 부족합니다.";
+        else if (ObjectUtils.isEmpty(this.scrollStuff) || this.scrollStuff.isEmpty()) 
+            comment = "강화 주문서가 부족합니다.";
 
         else if (BooleanUtils.isFalse(this.allowedItem.contains(this.enhanceItem.getType())))
             comment = "허용된 아이템을 넣어주세요.";
@@ -122,7 +125,11 @@ public class EnhanceUIClickEvent extends UIUtils implements EventRegister {
             comment = "허용된 주문서를 넣어주세요";
 
         if (BooleanUtils.isFalse(comment.isBlank()))
-            playerSendMsgComponentExchanger(this.clickPlayer, comment, ColorType.RED);
+            playerSendMsgComponentExchanger(
+                this.clickPlayer, 
+                Emoji.WARNING.getStringTypeEmoji() + comment, 
+                ColorType.RED
+                );
 
         return comment.isBlank();
     }

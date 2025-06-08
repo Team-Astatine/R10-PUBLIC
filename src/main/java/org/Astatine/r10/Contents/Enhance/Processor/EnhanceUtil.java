@@ -1,7 +1,9 @@
-package org.Astatine.r10.Contents.Enhance.Interface;
+package org.Astatine.r10.Contents.Enhance.Processor;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.bukkit.Bukkit;
@@ -19,6 +21,7 @@ import org.Astatine.r10.Contents.Enhance.Enumeration.Scroll.ScrollList;
 import org.Astatine.r10.Contents.Enhance.Enumeration.Weapon.LongRange;
 import org.Astatine.r10.Contents.Enhance.Enumeration.Weapon.ShortRange;
 import org.Astatine.r10.Exception.Enhance.EnhanceItemMetaException;
+import org.Astatine.r10.Util.Function.Emoji;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,15 +108,18 @@ public final class EnhanceUtil {
 
             ((Damageable) itemMeta).resetDamage();
 
-            Bukkit.broadcast(Component.text()
-                    .content(
-                            String.format(
-                                    "%s 님이 \"%s\" 10강 강화에 성공하셨습니다!"
-                                    , enhancePlayer.getName(), item.getType()
-                            )
-                    )
-                    .color(ColorType.WHITE_TO_RED7.getTextColor())
-                    .build()
+            Bukkit.broadcast(
+            Component.text()
+                        .append(Emoji.FIRE.getComponentTypeEmoji()
+                                .color(ColorType.WHITE.getTextColor())
+                                )
+                        .append(Component.text(
+                            String.format("%s 님이 \"%s\" 10강 강화에 성공하셨습니다!",
+                                enhancePlayer.getName(), item.getType()))
+                                .color(ColorType.WHITE_TO_RED7.getTextColor())
+                                .decorate(TextDecoration.BOLD)
+                                )
+                        .build()
             );
         }
 
@@ -179,14 +185,14 @@ public final class EnhanceUtil {
 
         String lore = "";
         int modelData = item.getItemMeta().getCustomModelData();
-
+        
         for (int i = 0; i < modelData; i++)
             lore += "★";
         
         lore += " +" + modelData;
 
         return Component.text(lore)
-                        .color(ColorType.getWhiteToRedArrays().get(modelData).getTextColor());
+                        .color(ColorType.getWhiteToRedArrays().get(modelData - 1).getTextColor());
     }
 
     public static Component getEnhanceDecreaseDamagePercentageLore(ItemStack enhanceItem) {

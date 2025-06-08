@@ -1,7 +1,7 @@
 package org.Astatine.r10.Contents.Enhance.PlayerInteraction.Armour;
 
 import org.Astatine.r10.Contents.EventRegister;
-import org.Astatine.r10.Contents.Enhance.Interface.EnhanceUtil;
+import org.Astatine.r10.Contents.Enhance.Processor.EnhanceUtil;
 import org.Astatine.r10.Util.Function.StringComponentExchanger;
 import org.apache.commons.lang3.ObjectUtils;
 import org.bukkit.entity.Entity;

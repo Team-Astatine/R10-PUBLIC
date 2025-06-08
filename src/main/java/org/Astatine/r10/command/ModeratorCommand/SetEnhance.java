@@ -3,7 +3,7 @@ package org.Astatine.r10.command.ModeratorCommand;
 import java.util.Map;
 
 import org.Astatine.r10.Contents.Enhance.Enumeration.EnhanceItemAttributes;
-import org.Astatine.r10.Contents.Enhance.Interface.EnhanceUtil;
+import org.Astatine.r10.Contents.Enhance.Processor.EnhanceUtil;
 import org.Astatine.r10.Enumeration.Type.ColorType;
 import org.Astatine.r10.command.CommandRegisterSection;
 import org.Astatine.r10.command.GlobalCommandHandler;
@@ -64,7 +64,7 @@ public class SetEnhance extends CommandRegisterSection {
         }
 
         try {
-            EnhanceUtil.increaseEnhanceItemLevel(targetItem, enhanceLevel);
+            EnhanceUtil.increaseEnhanceItemLevel(player, targetItem, enhanceLevel);
         } catch (Exception e) {
             e.printStackTrace();
         }

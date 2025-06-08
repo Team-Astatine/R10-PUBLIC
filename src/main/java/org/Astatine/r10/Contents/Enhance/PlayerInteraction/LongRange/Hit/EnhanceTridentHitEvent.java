@@ -1,7 +1,7 @@
 package org.Astatine.r10.Contents.Enhance.PlayerInteraction.LongRange.Hit;
 
 import org.Astatine.r10.Contents.EventRegister;
-import org.Astatine.r10.Contents.Enhance.Interface.EnhanceUtil;
+import org.Astatine.r10.Contents.Enhance.Processor.EnhanceUtil;
 import org.Astatine.r10.Data.User.UserData.UserHandler;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.ObjectUtils;

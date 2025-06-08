@@ -58,15 +58,15 @@ public class BossRewardService extends StringComponentExchanger implements Event
         String bossName = this.bossType.getBossName();
 
         String comment;
-        if (newHealthScale < 30)
-            comment = String.format("%s님이 %s를 처치하여 체력이 %.0f 증가했습니다.",
-                    playerName, bossName, this.bossSlayerPlayer.getHealthScale());
+        if (newHealthScale < MAX_HEALTH_SCALE)
+            comment = String.format("%s님이 %s를 처치하여 %s를 보상받았습니다.",
+                    playerName, bossName, this.bossType.getRewardHeartEmoji());
 
         else
-            comment = String.format("%s님이 %s를 처치하여 풀 체력이 되었습니다.",
+            comment = String.format("%s님이 %s를 처치하여 최대 체력이 되었습니다.",
                     playerName, bossName);
 
 
-        playerSendMsgComponentExchanger(this.bossSlayerPlayer, comment, ColorType.PINK);
+        playerSendMsgComponentExchanger(this.bossSlayerPlayer, comment, ColorType.WHITE_TO_RED7);
     }
 }

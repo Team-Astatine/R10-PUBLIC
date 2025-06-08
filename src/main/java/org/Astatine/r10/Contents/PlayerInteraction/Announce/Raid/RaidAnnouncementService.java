@@ -3,9 +3,15 @@ package org.Astatine.r10.Contents.PlayerInteraction.Announce.Raid;
 import org.Astatine.r10.Contents.EventRegister;
 import org.Astatine.r10.Enumeration.Type.ColorType;
 import org.Astatine.r10.Enumeration.Type.WorldType;
+import org.Astatine.r10.Util.Function.Emoji;
 import org.Astatine.r10.Util.Function.StringComponentExchanger;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.event.raid.RaidTriggerEvent;
+
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextDecoration;
+
 
 public class RaidAnnouncementService extends StringComponentExchanger implements EventRegister {
     private Location location;
@@ -31,8 +37,18 @@ public class RaidAnnouncementService extends StringComponentExchanger implements
         double x = this.location.getX();
         double z = this.location.getZ();
 
-        sendAnnouncerComponentExchanger(
-                String.format("%s 월드의 X : %1.0f | Z : %1.0f 에서 레이드가 시작됩니다.",
-                        activeWorld.getKoreanWorldName(), x, z), ColorType.ORANGE);
+        Bukkit.broadcast(
+            Component.text()
+                        .append(Emoji.LOUDER.getComponentTypeEmoji()
+                                    .color(ColorType.WHITE.getTextColor())
+                                    )
+                        .append(Component.text(
+                            String.format(" %s 월드의 X : %1.0f | Z : %1.0f 에서 레이드가 시작됩니다.",
+                                activeWorld.getKoreanWorldName(), x, z))
+                                    .color(ColorType.ORANGE.getTextColor())
+                                    .decorate(TextDecoration.BOLD)
+                                    )
+                        .build()
+        );
     }
 }

@@ -32,7 +32,7 @@ public class JoinMessageService extends StringComponentExchanger implements Even
         
         this.title = Title.title(
                 componentExchanger("최신버전 무정부 플라이 반야생", ColorType.PURPLE),
-                componentExchanger("Astatine Online", ColorType.ORANGE)
+                componentExchanger("Shift + F 를 눌러 메뉴를 열 수 있습니다.", ColorType.ORANGE)
         );
 
         int kills = userKillStatus.killCount();

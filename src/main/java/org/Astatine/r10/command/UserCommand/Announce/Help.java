@@ -1,12 +1,15 @@
 package org.Astatine.r10.command.UserCommand.Announce;
 
-import net.kyori.adventure.text.Component;
 import org.Astatine.r10.Data.DataIO.Config.ConfigIOHandler;
 import org.Astatine.r10.Enumeration.Type.ColorType;
+import org.Astatine.r10.Util.Function.Emoji;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
+
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextDecoration;
 
 public record Help() implements CommandExecutor {
 
@@ -17,9 +20,18 @@ public record Help() implements CommandExecutor {
                              final @NotNull String[] strings) {
 
         ConfigIOHandler configIOHandler = ConfigIOHandler.getConfigIOHandler();
-        commandSender.sendMessage(Component.text(
-                configIOHandler.getHelp(), ColorType.WHITE_TO_RED6.getTextColor())
-        );
+        
+        commandSender.sendMessage(
+            Component.text()
+                            .append(Emoji.LOUDER.getComponentTypeEmoji()
+                                    .color(ColorType.WHITE.getTextColor())
+                                    )
+                            .append(Component.text(configIOHandler.getHelp())
+                                    .color(ColorType.WHITE_TO_RED7.getTextColor())
+                                    )
+                            .decorate(TextDecoration.BOLD)
+                            .build()
+                );
         return true;
     }
 }

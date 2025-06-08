@@ -24,8 +24,8 @@ public class TitleAstatine extends CommandRegisterSection {
 
         Player player = (Player) commandSender;
         Title title = Title.title(
-                componentExchanger("최신버전 무정부 플라이 생야생", ColorType.DISCORD_COLOR),
-                componentExchanger("Astn.kr", ColorType.ORANGE)
+                componentExchanger("최신버전 무정부 플라이 반야생", ColorType.PURPLE),
+                componentExchanger("Shift + F 를 눌러 메뉴를 열 수 있습니다.", ColorType.ORANGE)
         );
         player.showTitle(title);
         return true;

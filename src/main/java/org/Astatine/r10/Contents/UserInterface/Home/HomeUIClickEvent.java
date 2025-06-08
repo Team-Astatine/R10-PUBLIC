@@ -1,6 +1,9 @@
 package org.Astatine.r10.Contents.UserInterface.Home;
 
 import net.ess3.api.IUser;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
+
 import org.Astatine.r10.Contents.EventRegister;
 import org.Astatine.r10.Contents.UserInterface.Core.Interface.UIHolder;
 import org.Astatine.r10.Contents.UserInterface.Core.UIUtils;
@@ -43,9 +46,8 @@ public class HomeUIClickEvent extends UIUtils implements EventRegister {
 
         this.event.setCancelled(true);
         IUser essPlayer = getEssentialPluginUserObject(this.clickPlayer);
-        String homeName = componentExchanger(
-                this.event.getInventory().getItem(this.event.getSlot()).displayName()
-        );
+        Component componentHomeName = this.event.getInventory().getItem(this.event.getSlot()).displayName();
+        String homeName = componentExchanger(componentHomeName);
 
         switch (event.getClick()) {
             case ClickType.LEFT -> performCommand(this.clickPlayer, "home", homeName);

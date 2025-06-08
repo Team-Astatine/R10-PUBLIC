@@ -8,7 +8,7 @@ world_setting:
   motd: 'ASTATINE ONLINE'
 
 message:
-  commandHelp: '[/help]를 치시거나, Shift + F(Swap) 키를 누르면 메뉴가 열립니다!'
+  commandHelp: '[/커뮤니티, /tip, /명령어]로 기능을 확인, Shift + F(Swap) 키로 메뉴를 이용할 수 있어요!'
   commandCommunity: '/커뮤니티'
   mineListVote: '[클릭] > 마인리스트 추천'
   discordInvite: '[클릭] > 디스코드 참가'

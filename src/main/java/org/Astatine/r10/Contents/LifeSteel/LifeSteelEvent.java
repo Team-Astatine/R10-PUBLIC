@@ -7,6 +7,7 @@ import org.Astatine.r10.Data.User.UserKillStatus.UserKillStatus;
 import org.Astatine.r10.Data.User.UserKillStatus.UserKillStatusBuilder;
 import org.Astatine.r10.Data.User.UserKillStatus.UserKillStatusHandler;
 import org.Astatine.r10.Enumeration.Type.ColorType;
+import org.Astatine.r10.Util.Function.Emoji;
 import org.Astatine.r10.Util.Function.StringComponentExchanger;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.ObjectUtils;
@@ -15,6 +16,9 @@ import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.PlayerDeathEvent;
+
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextDecoration;
 
 
 public class LifeSteelEvent extends StringComponentExchanger implements EventRegister {
@@ -108,7 +112,32 @@ public class LifeSteelEvent extends StringComponentExchanger implements EventReg
                         .healthScale(this.killer.getHealthScale() + STEP_SIZE)
                         .build());
 
-        playerSendMsgComponentExchanger(this.deathPlayer, this.killer.getName() + "님이 체력을 약탈했습니다.", ColorType.RED);
-        playerSendMsgComponentExchanger(this.killer, this.deathPlayer.getName() + "님이 체력을 약탈했습니다.", ColorType.RED);
+        this.deathPlayer.sendMessage(
+            Component.text()
+                            .append(Emoji.CROSSED_SWORDS.getComponentTypeEmoji()
+                                        .color(ColorType.WHITE.getTextColor())
+                                        )
+                            .append(Component.text()
+                                        .append(this.killer.displayName())
+                                        .append(Component.text("님이 체력을 약탈했습니다."))
+                                        .color(ColorType.WHITE_TO_RED7.getTextColor())
+                                        .decorate(TextDecoration.BOLD)
+                                        )
+                            .build()
+        );
+
+        this.killer.sendMessage(
+            Component.text()
+                            .append(Emoji.CROSSED_SWORDS.getComponentTypeEmoji()
+                                        .color(ColorType.WHITE.getTextColor())
+                                        )
+                            .append(Component.text()
+                                        .append(this.deathPlayer.displayName())
+                                        .append(Component.text("님의 체력을 약탈했습니다."))
+                                        .color(ColorType.WHITE_TO_RED7.getTextColor())
+                                        .decorate(TextDecoration.BOLD)
+                                        )
+                            .build()
+        );
     }
 }

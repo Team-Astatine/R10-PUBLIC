@@ -1,5 +1,6 @@
 package org.Astatine.r10.Enumeration.Type;
 
+import java.util.Arrays;
 import java.util.List;
 
 import net.kyori.adventure.text.format.TextColor;
@@ -38,7 +39,8 @@ public enum ColorType {
     }
 
     public static List<ColorType> getWhiteToRedArrays() {
-        return List.of(
+        return Arrays.asList(
+            WHITE,
             WHITE_TO_RED1,
             WHITE_TO_RED2,
             WHITE_TO_RED3,
@@ -46,7 +48,8 @@ public enum ColorType {
             WHITE_TO_RED5,
             WHITE_TO_RED6,
             WHITE_TO_RED7,
-            WHITE_TO_RED8
+            WHITE_TO_RED8,
+            RED
         );
     }
 }

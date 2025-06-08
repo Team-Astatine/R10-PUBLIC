@@ -7,8 +7,8 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.Astatine.r10.Contents.Enhance.Interface.EnhanceUtil;
 import org.Astatine.r10.Contents.EventRegister;
+import org.Astatine.r10.Contents.Enhance.Processor.EnhanceUtil;
 import org.Astatine.r10.Util.Function.StringComponentExchanger;
 
 public class UpdateEnhanceResultItemLoreFromAnvil extends StringComponentExchanger implements EventRegister {

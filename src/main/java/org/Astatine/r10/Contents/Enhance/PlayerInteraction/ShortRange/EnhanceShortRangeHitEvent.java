@@ -1,7 +1,7 @@
 package org.Astatine.r10.Contents.Enhance.PlayerInteraction.ShortRange;
 
 import org.Astatine.r10.Contents.EventRegister;
-import org.Astatine.r10.Contents.Enhance.Interface.EnhanceUtil;
+import org.Astatine.r10.Contents.Enhance.Processor.EnhanceUtil;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.bukkit.entity.Entity;

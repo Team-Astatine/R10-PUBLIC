@@ -3,10 +3,14 @@ package org.Astatine.r10.Contents.Enhance.Processor;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.bukkit.Material;
+
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextDecoration;
+
 import org.Astatine.r10.Enumeration.Type.ColorType;
 import org.Astatine.r10.Contents.Enhance.Enumeration.Scroll.ProtectScrollList;
 import org.Astatine.r10.Contents.Enhance.Enumeration.Scroll.ScrollList;
-import org.Astatine.r10.Contents.Enhance.Interface.EnhanceUtil;
+import org.Astatine.r10.Util.Function.Emoji;
 import org.Astatine.r10.Util.Function.StringComponentExchanger;
 
 public class EnhanceItemExecutor extends StringComponentExchanger {
@@ -96,12 +100,12 @@ public class EnhanceItemExecutor extends StringComponentExchanger {
         }
 
         failEnhanceScenario();
-        playerSendMessage(4, ColorType.VOTE_COLOR);
+        playerSendMessage(4, ColorType.DISCORD_COLOR);
         EnhanceUtil.scrollDiscount(this.item.enhanceScroll(), this.item.protectScroll());
     }
 
     private void successEnhanceScenario() {
-        playerSendMessage(6, ColorType.DISCORD_COLOR);
+        playerSendMessage(6, ColorType.WHITE_TO_RED7);
         try {
             EnhanceUtil.increaseEnhanceItemLevel(this.item.enhancePlayer(), this.item.enhanceItem(), +1);
         } catch (Exception e) {
@@ -124,19 +128,25 @@ public class EnhanceItemExecutor extends StringComponentExchanger {
             currentCustomModelData = this.item.enhanceItem().getItemMeta().getCustomModelData();
 
         String comment = switch (commentCode) {
-            case 0 -> "무기를 올려주세요.";
-            case 1 -> "강화 주문서가 부족합니다.";
-            case 2 -> "이미 최고 레벨입니다.";
-            case 3 -> "강화에 실패하여 무기가 파괴 되었습니다.";
-            case 4 -> "파괴방어 스크롤을 사용하여 파괴방지 성공!";
-            case 5 -> " " + currentCustomModelData + "강 -> " + --currentCustomModelData + "강 강화실패";
-            case 6 -> " " + currentCustomModelData + "강 -> " + ++currentCustomModelData + "강 강화성공";
-            case 7 -> "파괴방지 주문서가 부족하여 강화가 실행되지 않았습니다.";
-            case 8 -> "강화 주문서가 부족하여 실행되지 않았습니다.";
+            case 2 -> Emoji.WARNING.getStringTypeEmoji() + "이미 최고 레벨입니다.";
+            case 3 -> Emoji.SKULL.getStringTypeEmoji() + "강화에 실패하여 무기가 파괴 되었습니다.";
+            case 4 -> Emoji.EXPLODING_PARTY.getStringTypeEmoji() + "파괴방어 스크롤을 사용하여 파괴방지 성공!";
+            case 5 -> Emoji.SAD_FACE.getStringTypeEmoji() + currentCustomModelData + "강 -> " + --currentCustomModelData + "강 강화실패";
+            case 6 -> Emoji.EXPLODING_PARTY.getStringTypeEmoji() + currentCustomModelData + "강 -> " + ++currentCustomModelData + "강 강화성공";
+            case 7 -> Emoji.WARNING.getStringTypeEmoji() + "파괴방지 주문서가 부족하여 강화가 실행되지 않았습니다.";
+            case 8 -> Emoji.WARNING.getStringTypeEmoji() + "강화 주문서가 부족하여 실행되지 않았습니다.";
 
             default -> throw new IllegalStateException("UnKnown CommentCode: " + commentCode);
         };
 
-        playerSendMsgComponentExchanger(this.item.enhancePlayer(), comment, commentColor);
+        this.item.enhancePlayer().sendMessage(
+        Component.text()
+                        .append(Component.text()
+                                    .append(Component.text(comment))
+                                    .color(commentColor.getTextColor())
+                                    .decorate(TextDecoration.BOLD)
+                                    )
+                        .build()
+        );
     }
 }

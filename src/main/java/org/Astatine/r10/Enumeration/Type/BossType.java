@@ -1,7 +1,11 @@
 package org.Astatine.r10.Enumeration.Type;
 
+import org.Astatine.r10.Util.Function.Emoji;
 import org.apache.commons.lang3.BooleanUtils;
 import org.bukkit.entity.EntityType;
+
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
 
 import java.util.Arrays;
 import java.util.EnumMap;
@@ -49,5 +53,13 @@ public enum BossType {
 
     public String getBossName() {
         return bossName;
+    }
+
+    public String getRewardHeartEmoji() {
+        String content = "";
+        for (int i = 0; i < ((int) rewardHealth / 2); i++)
+            content += Emoji.MINECRAFT_HEART.getStringTypeEmoji();
+
+        return content;
     }
 }

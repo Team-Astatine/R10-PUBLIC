@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.Astatine.r10.Contents.EventRegister;
-import org.Astatine.r10.Contents.Enhance.Interface.EnhanceUtil;
+import org.Astatine.r10.Contents.Enhance.Processor.EnhanceUtil;
 import org.Astatine.r10.Util.Function.StringComponentExchanger;
 import org.apache.commons.lang3.BooleanUtils;
 import org.bukkit.enchantments.Enchantment;

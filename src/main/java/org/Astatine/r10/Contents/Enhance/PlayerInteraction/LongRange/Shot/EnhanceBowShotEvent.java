@@ -9,8 +9,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
-import org.Astatine.r10.Contents.Enhance.Interface.EnhanceUtil;
 import org.Astatine.r10.Contents.EventRegister;
+import org.Astatine.r10.Contents.Enhance.Processor.EnhanceUtil;
 
 public class EnhanceBowShotEvent implements EventRegister {
     private Arrow arrow;

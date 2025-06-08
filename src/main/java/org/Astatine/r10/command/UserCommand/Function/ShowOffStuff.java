@@ -1,6 +1,7 @@
 package org.Astatine.r10.command.UserCommand.Function;
 
 import org.Astatine.r10.Enumeration.Type.ColorType;
+import org.Astatine.r10.Util.Function.Emoji;
 import org.Astatine.r10.command.CommandRegisterSection;
 import org.Astatine.r10.command.GlobalCommandHandler;
 import org.bukkit.Bukkit;
@@ -10,6 +11,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+
+import net.kyori.adventure.text.format.TextDecoration;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.HoverEvent;
@@ -39,12 +42,19 @@ public class ShowOffStuff extends CommandRegisterSection {
         HoverEvent<HoverEvent.ShowItem> hover = single.asHoverEvent(show -> show);
 
         Component nameComp = Bukkit.getItemFactory().displayName(single);
-        Component message = Component.empty()
-                .append(player.displayName())
-                .append(Component.text("님의 자랑: "))
-                .append(nameComp.hoverEvent(hover));
 
-        Bukkit.getServer().sendMessage(message);
+        Bukkit.broadcast(
+        Component.text()
+                        .append(Emoji.LOUDER.getComponentTypeEmoji()
+                                .color(ColorType.WHITE.getTextColor())
+                                )
+                        .append(player.displayName())
+                        .append(Component.text("님의 자랑 : "))
+                        .append(nameComp.hoverEvent(hover)
+                                .decorate(TextDecoration.BOLD)
+                                )
+                        .build()
+            );
 
         return true;
     }
