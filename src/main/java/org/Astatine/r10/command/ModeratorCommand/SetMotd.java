@@ -2,7 +2,7 @@ package org.Astatine.r10.command.ModeratorCommand;
 
 import org.Astatine.r10.Data.DataIO.Config.ConfigIOHandler;
 import org.Astatine.r10.Enumeration.Type.ColorType;
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 
-public class SetMotd extends CommandRegisterSection {
+public class SetMotd extends CommandRegister {
 
     private static final String DEFAULT_SERVER_MOTD = "Astatine Online";
     private String newMotd;

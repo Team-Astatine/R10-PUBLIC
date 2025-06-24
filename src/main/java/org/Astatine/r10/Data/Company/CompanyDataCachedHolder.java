@@ -1,8 +1,8 @@
-package org.Astatine.r10.Data.Company.CompanyData;
-
-import org.Astatine.r10.Data.Company.CompanyData.Value.Company;
+package org.Astatine.r10.Data.Company;
 
 import java.util.HashSet;
+
+import org.Astatine.r10.Data.Company.CompanyData.Company.Company;
 
 public class CompanyDataCachedHolder {
     private static class CompanyListHolder {
@@ -12,4 +12,5 @@ public class CompanyDataCachedHolder {
     public static HashSet<Company> getCompanyListInstance() {
         return CompanyListHolder.INSTANCE;
     }
+    
 }

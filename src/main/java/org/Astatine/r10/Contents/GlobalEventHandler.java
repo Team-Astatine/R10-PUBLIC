@@ -33,7 +33,7 @@ import org.Astatine.r10.Contents.PlayerInteraction.PlayerStatus.PlayerJoinEvent.
 import org.Astatine.r10.Contents.PlayerInteraction.PlayerStatus.PlayerQuitEvent.QuitUserConfigurationValueService;
 import org.Astatine.r10.Contents.PlayerInteraction.PlayerStatus.PlayerRespawnEvent.RespawnMessageService;
 import org.Astatine.r10.Contents.RandomTeleport.RespawnRandomTeleportService;
-import org.Astatine.r10.Contents.RemoveHitDelay.EntityHitDealyHandler;
+import org.Astatine.r10.Contents.RemoveHitDelay.EntityHitDelayHandler;
 import org.Astatine.r10.Contents.RemoveHitDelay.ResetHitDelayHandler;
 import org.Astatine.r10.Contents.Restricted.AntiExploit.ChatFlood.RestrictedChatHandler;
 import org.Astatine.r10.Contents.Restricted.AntiExploit.ChunkRenderer.RestrictedPortalEntryHandler;
@@ -293,7 +293,7 @@ public class GlobalEventHandler implements Listener {
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void EntityDamageByEntityEvent(EntityDamageByEntityEvent event) {
-        new EntityHitDealyHandler(event);
+        new EntityHitDelayHandler(event);
         new EnhanceShortRangeHitEvent(event);
     }
 

@@ -1,12 +1,12 @@
 package org.Astatine.r10.command.Company.UserCommand;
 
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
-public class RecruitEmployee extends CommandRegisterSection {
+public class RecruitEmployee extends CommandRegister {
 
     public RecruitEmployee() {
         super(GlobalCommandHandler.RECRUIT_EMPLOYEE);

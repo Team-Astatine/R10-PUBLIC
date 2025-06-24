@@ -51,7 +51,9 @@ public class RestrictedStackingTotemInteractionShulkerChestHandler extends Strin
             return;
 
         this.event.setCancelled(true);
-        playerSendMsgComponentExchanger(player, "겹쳐진 토템은 셜커에 보관할 수 없습니다.", ColorType.RED);
+        this.player.sendMessage(
+            waringMessage("겹쳐진 토템은 셜커에 보관할 수 없습니다.")
+            );
 
         /*Debugging Code
 //        System.out.println("null check");

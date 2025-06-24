@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public enum ScrollList implements Scroll {
     DRAGON_EGG(Material.DRAGON_EGG, 0),
 //    END_CRYSTAL(Material.END_CRYSTAL, 1),
-    ENCHANTED_GOLDEN_APPLE(Material.ENCHANTED_GOLDEN_APPLE, 1),
+    // ENCHANTED_GOLDEN_APPLE(Material.ENCHANTED_GOLDEN_APPLE, 1),
     ELYTRA(Material.ELYTRA, 1),
     NETHER_STAR(Material.NETHER_STAR, 1),
     SCULK_SHRIEKER(Material.SCULK_SHRIEKER, 2),
@@ -42,7 +42,7 @@ public enum ScrollList implements Scroll {
         this.material = material;
     }
 
-    public static ScrollList findByItemStack(ItemStack itemStack) throws Exception {
+    public static ScrollList findByItemStack(ItemStack itemStack) throws EnhanceItemSearchException {
         if (BooleanUtils.isFalse(CACHED_ITEM.containsKey(itemStack.getType())))
             throw new EnhanceItemSearchException("Non Register This Material");
         return CACHED_ITEM.get(itemStack.getType());

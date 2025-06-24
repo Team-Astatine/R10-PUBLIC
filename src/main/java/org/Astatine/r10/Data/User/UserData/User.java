@@ -18,6 +18,7 @@ import java.util.UUID;
  * @Param level              유저의 level을 기록합니다.
  * @Param godMode            유저가 무적인지 Status를 확인합니다.
  * @Param announcingSkip     서버 공지사항을 on/off 합니다.
+ * @Param flight             서버 플라이를 on/off 합니다.
  */
 public record User(
         UUID uuid,
@@ -27,6 +28,7 @@ public record User(
         int playTime,
         int level,
         boolean godMode,
-        boolean announcingSkip
+        boolean announcingSkip,
+        boolean flight
 ) implements RObject {
 }

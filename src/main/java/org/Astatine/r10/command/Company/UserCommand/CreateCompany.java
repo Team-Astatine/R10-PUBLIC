@@ -1,12 +1,12 @@
 package org.Astatine.r10.command.Company.UserCommand;
 
+import org.Astatine.r10.Data.Company.CompanyData.Company.Company;
+import org.Astatine.r10.Data.Company.CompanyData.Company.CompanyController;
+import org.Astatine.r10.Data.Company.CompanyData.Company.Employee;
 import org.Astatine.r10.Data.Company.CompanyData.Enumeration.BusinessSize;
 import org.Astatine.r10.Data.Company.CompanyData.Enumeration.Position;
-import org.Astatine.r10.Data.Company.CompanyData.Value.Company;
-import org.Astatine.r10.Data.Company.CompanyData.Value.CompanyController;
-import org.Astatine.r10.Data.Company.CompanyData.Value.Employee;
 import org.Astatine.r10.Util.EssentialsUtil;
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -19,7 +19,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.UUID;
 
-public class CreateCompany extends CommandRegisterSection {
+public class CreateCompany extends CommandRegister {
 
     public CreateCompany() {
         super(GlobalCommandHandler.CREATE_COMPANY);
@@ -50,6 +50,7 @@ public class CreateCompany extends CommandRegisterSection {
         Company newCompany = new Company(
                 UUID.randomUUID(),
                 companyOwner.getUniqueId(),
+                null,
                 args[0],
                 companyBalance,
                 BusinessSize.STARTUP,

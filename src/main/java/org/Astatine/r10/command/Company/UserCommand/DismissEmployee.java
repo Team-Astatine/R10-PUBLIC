@@ -1,12 +1,12 @@
 package org.Astatine.r10.command.Company.UserCommand;
 
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
-public class DismissEmployee extends CommandRegisterSection {
+public class DismissEmployee extends CommandRegister {
 
     public DismissEmployee() {
         super(GlobalCommandHandler.DISMISS_EMPLOYEE);

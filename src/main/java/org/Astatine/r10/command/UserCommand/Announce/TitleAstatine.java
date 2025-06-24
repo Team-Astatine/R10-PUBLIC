@@ -1,7 +1,7 @@
 package org.Astatine.r10.command.UserCommand.Announce;
 
 import org.Astatine.r10.Enumeration.Type.ColorType;
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 import net.kyori.adventure.title.Title;
 
-public class TitleAstatine extends CommandRegisterSection {
+public class TitleAstatine extends CommandRegister {
 
     public TitleAstatine() {
         super(GlobalCommandHandler.ASTN);

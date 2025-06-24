@@ -1,18 +1,21 @@
 package org.Astatine.r10.command.UserCommand.Function;
 
+import org.Astatine.r10.Data.User.UserData.User;
+import org.Astatine.r10.Data.User.UserData.UserBuilder;
+import org.Astatine.r10.Data.User.UserData.UserHandler;
 import org.Astatine.r10.Enumeration.Type.ColorType;
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.Util.Function.Emoji;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-
-public class ToggleFly extends CommandRegisterSection {
+public class ToggleFly extends CommandRegister {
 
     public ToggleFly() {
-        super(GlobalCommandHandler.FLY);
+        super(GlobalCommandHandler.FLIGHT);
     }
 
     @Override
@@ -23,10 +26,21 @@ public class ToggleFly extends CommandRegisterSection {
 
         Player targetPlayer = (Player) sender;
 
+        User user = new UserHandler().readUser(targetPlayer.getUniqueId());
+        new UserBuilder(user)
+            .isFlight(!user.flight())
+            .buildAndUpdate();
+        
         targetPlayer.setAllowFlight(!targetPlayer.getAllowFlight());
 
         String comment = targetPlayer.getAllowFlight() ? "활성화" : "비활성화";
-        playerSendMsgComponentExchanger(targetPlayer, "플라이 " + comment, ColorType.YELLOW);
+        targetPlayer.sendMessage(
+        emojiMessage(
+                Emoji.CHECK, 
+                String.format("플라이가 %s됐어요!",comment),
+                ColorType.YELLOW
+            )
+        );
         return true;
     }
 }

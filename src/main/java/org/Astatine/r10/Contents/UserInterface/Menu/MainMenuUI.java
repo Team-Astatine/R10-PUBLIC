@@ -1,32 +1,38 @@
 package org.Astatine.r10.Contents.UserInterface.Menu;
 
-import net.kyori.adventure.text.Component;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.ArrayList;
+
 import org.Astatine.r10.Contents.UserInterface.Core.UIUtils;
-import org.bukkit.Material;
-import org.bukkit.Statistic;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
-import org.jetbrains.annotations.NotNull;
-import org.Astatine.r10.Enumeration.Type.ColorType;
 import org.Astatine.r10.Contents.UserInterface.Core.Interface.Type;
 import org.Astatine.r10.Contents.UserInterface.Core.Interface.UIHolder;
 import org.Astatine.r10.Contents.UserInterface.Core.Interface.UIType;
 import org.Astatine.r10.Contents.UserInterface.Core.UIGenerator.InventoryUIGenerator;
 import org.Astatine.r10.Contents.UserInterface.Core.UIGenerator.SlotItemMapping;
+import org.Astatine.r10.Data.User.UserData.User;
+import org.Astatine.r10.Data.User.UserData.UserHandler;
+import org.Astatine.r10.Enumeration.Type.ColorType;
+import org.bukkit.Material;
+import org.bukkit.Statistic;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
+import net.kyori.adventure.text.Component;
 
 @UIType(Type.MAIN_MENU)
 public class MainMenuUI extends UIUtils implements UIHolder {
     private Player chestOwner;
+    private User chestOwnerUserObj;
+
     private Inventory inventory;
     private int slotCount;
 
     public MainMenuUI(Player player) {
         this.chestOwner = player;
+        this.chestOwnerUserObj = new UserHandler().readUser(this.chestOwner.getUniqueId());
         this.slotCount = MINIUM_TAB_CNT * 6;
 
         UIExecutor();
@@ -141,27 +147,34 @@ public class MainMenuUI extends UIUtils implements UIHolder {
         result.add(new SlotItemMapping(
                 47,
                 createItem(
-                        Material.GREEN_STAINED_GLASS_PANE,
-                        "마인리스트 링크 받기", ColorType.VOTE_COLOR,
+                        Material.PURPLE_STAINED_GLASS_PANE,
+                        "커뮤니티 링크", ColorType.VOTE_COLOR,
                         false)
         ));
 
 //        result.add(new SlotItemMapping(48, item));
         result.add(new SlotItemMapping(
-                49,
+                48,
                 createItem(
-                        Material.GRAY_STAINED_GLASS_PANE,
-                        "서버 소개사이트 링크 받기", ColorType.NOTION_COLOR,
+                        Material.PURPLE_STAINED_GLASS_PANE,
+                        "커뮤니티 링크", ColorType.VOTE_COLOR,
                         false)
         ));
 //        result.add(new SlotItemMapping(50, item));
 
         result.add(new SlotItemMapping(
+                50,
+                createItem(
+                        Material.RED_STAINED_GLASS_PANE,
+                        "공지 활성화", ColorType.WHITE_TO_RED4,
+                        chestOwnerUserObj.announcingSkip())
+        ));
+        result.add(new SlotItemMapping(
                 51,
                 createItem(
-                        Material.BLUE_STAINED_GLASS_PANE,
-                        "디스코드 초대 링크 받기", ColorType.DISCORD_COLOR,
-                        false)
+                        Material.YELLOW_STAINED_GLASS_PANE,
+                        "플라이 활성화", ColorType.WHITE_TO_RED4,
+                        chestOwnerUserObj.flight())
         ));
 //        result.add(new SlotItemMapping(52, item));
 

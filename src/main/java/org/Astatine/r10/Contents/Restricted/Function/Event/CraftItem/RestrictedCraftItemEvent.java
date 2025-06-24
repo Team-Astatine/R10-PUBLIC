@@ -35,6 +35,8 @@ public class RestrictedCraftItemEvent extends StringComponentExchanger implement
 
         Player player = (Player) this.event.getWhoClicked();
         this.event.setCancelled(true);
-        playerSendMsgComponentExchanger(player, "해당 아이템은 조합할 수 없습니다.", ColorType.RED);
+        player.sendMessage(
+            waringMessage("해당 아이템은 조합할 수 없습니다.")
+            );
     }
 }

@@ -11,12 +11,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class EntityHitDealyHandler implements EventRegister {
+public class EntityHitDelayHandler implements EventRegister {
     private Entity damagerEntity;
     private LivingEntity targetEntity;
     private final EntityDamageByEntityEvent event;
 
-    public EntityHitDealyHandler(EntityDamageByEntityEvent event) {
+    public EntityHitDelayHandler(EntityDamageByEntityEvent event) {
         this.event = event;
         init();
         execute();

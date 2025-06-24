@@ -7,7 +7,7 @@ import org.Astatine.r10.Data.User.UserData.UserHandler;
 import org.Astatine.r10.Data.User.UserKillStatus.UserKillStatus;
 import org.Astatine.r10.Data.User.UserKillStatus.UserKillStatusHandler;
 import org.Astatine.r10.Enumeration.Type.ColorType;
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -15,7 +15,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class GetUserValue extends CommandRegisterSection {
+import net.kyori.adventure.text.Component;
+
+public class GetUserValue extends CommandRegister {
 
     public GetUserValue() {
         super(GlobalCommandHandler.LOOK_USER_VALUE);
@@ -51,7 +53,12 @@ public class GetUserValue extends CommandRegisterSection {
 
     private void sendComment(CommandSender sender, String comment) {
         if (sender instanceof Player)
-            playerSendMsgComponentExchanger(sender, comment, ColorType.YELLOW);
+            sender.sendMessage(
+                Component.text()
+                .append(Component.text(comment))
+                .color(ColorType.YELLOW.getTextColor())
+                .build()
+            );
         else Bukkit.getLogger().info(comment);
     }
 }

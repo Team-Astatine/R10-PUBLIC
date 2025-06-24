@@ -6,7 +6,8 @@ import java.util.Objects;
 import java.util.Optional;
 
 import org.Astatine.r10.Enumeration.Type.ColorType;
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.Util.Function.Emoji;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
 import org.apache.commons.lang3.BooleanUtils;
 import org.bukkit.Material;
@@ -17,7 +18,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.jetbrains.annotations.NotNull;
 
-public class StackingTotemFunction extends CommandRegisterSection {
+public class StackingTotemFunction extends CommandRegister {
     private final Material TOTEM = Material.TOTEM_OF_UNDYING;
 
     private final int STACK = 64;
@@ -84,7 +85,9 @@ public class StackingTotemFunction extends CommandRegisterSection {
 
 //            공간확보
             if (invNullingSpaceCount < supplyStackAmount + 1) {
-                playerSendMsgComponentExchanger(this.player, "인벤토리 공간이 부족합니다.", ColorType.YELLOW);
+                this.player.sendMessage(
+                    waringMessage("인벤토리 공간이 부족해요 ㅠㅠ")
+                    );
                 return;
             }
 
@@ -96,7 +99,13 @@ public class StackingTotemFunction extends CommandRegisterSection {
             this.playerInventory.addItem(new ItemStack(TOTEM, totalAmount - (supplyStackAmount * STACK)));
         }
 
-        playerSendMsgComponentExchanger(this.player, "토템을 합쳤습니다.", ColorType.YELLOW);
+        this.player.sendMessage(
+            emojiMessage(
+                Emoji.EXPLODING_PARTY, 
+                "토템을 합쳤어요!", 
+                ColorType.YELLOW
+            )
+        );
     }
 
     private void removeTotemInInv() {
@@ -130,23 +139,22 @@ public class StackingTotemFunction extends CommandRegisterSection {
         String message = "";
         ItemStack playerOffHandItem = this.playerInventory.getItemInOffHand();
         if (this.totemCountData.isEmpty())
-            message = "인벤토리에 토템이 없습니다.";
+            message = "인벤토리에 토템이 없어요..";
 
         else if (playerOffHandItem.getType() == TOTEM)
             if (playerOffHandItem.getAmount() == 64)
-                message = "토템은 최대 한 세트만 합칠 수 있습니다.";
+                message = "토템은 최대 한 세트만 합칠 수 있어요!";
 
         else if (maxCnt < 2 && minCnt < 1)
-            message = "합칠 토템이 없습니다.";
+            message = "합칠 토템이 없는데요...";
 
         else if (maxCnt < 2 && minCnt < 2)
-            message = "2개 이상의 토템을 가지고 있으셔야 합니다.";
-
+            message = "2개 이상의 토템을 가지고 있으셔야 해요!!!";
 
         if (message.isEmpty())
             return true;
 
-        playerSendMsgComponentExchanger(this.player, message, ColorType.RED);
+        this.player.sendMessage(waringMessage(message));
         return false;
     }
 }

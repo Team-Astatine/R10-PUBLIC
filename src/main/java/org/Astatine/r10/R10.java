@@ -6,8 +6,8 @@ import java.util.EnumSet;
 
 import org.Astatine.r10.Contents.GlobalEventHandler;
 import org.Astatine.r10.Contents.PlayerInteraction.Announce.Tip.Announcer;
-import org.Astatine.r10.Data.Company.CompanyData.Value.Company;
-import org.Astatine.r10.Data.Company.CompanyData.Value.CompanyController;
+import org.Astatine.r10.Data.Company.CompanyData.Company.Company;
+import org.Astatine.r10.Data.Company.CompanyData.Company.CompanyController;
 import org.Astatine.r10.Data.DataIO.Config.ConfigIOHandler;
 import org.Astatine.r10.Data.DataIO.User.DataFile;
 import org.Astatine.r10.Data.DataIO.User.RObjectIOHandler;

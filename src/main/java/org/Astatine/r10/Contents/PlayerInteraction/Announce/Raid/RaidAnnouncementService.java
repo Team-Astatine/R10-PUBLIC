@@ -38,17 +38,12 @@ public class RaidAnnouncementService extends StringComponentExchanger implements
         double z = this.location.getZ();
 
         Bukkit.broadcast(
-            Component.text()
-                        .append(Emoji.LOUDER.getComponentTypeEmoji()
-                                    .color(ColorType.WHITE.getTextColor())
-                                    )
-                        .append(Component.text(
-                            String.format(" %s 월드의 X : %1.0f | Z : %1.0f 에서 레이드가 시작됩니다.",
-                                activeWorld.getKoreanWorldName(), x, z))
-                                    .color(ColorType.ORANGE.getTextColor())
-                                    .decorate(TextDecoration.BOLD)
-                                    )
-                        .build()
+            emojiMessage(
+                Emoji.LOUDER, 
+                String.format(" %s 월드의 X : %1.0f | Z : %1.0f 에서 레이드가 시작됐어요!",
+                    activeWorld.getKoreanWorldName(), x, z),
+                ColorType.ORANGE
+            )
         );
     }
 }

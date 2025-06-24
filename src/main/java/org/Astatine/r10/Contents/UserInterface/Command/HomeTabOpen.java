@@ -3,7 +3,7 @@ package org.Astatine.r10.Contents.UserInterface.Command;
 import net.ess3.api.IEssentials;
 import org.Astatine.r10.Contents.UserInterface.Home.HomeUI;
 import org.Astatine.r10.Enumeration.Type.ColorType;
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -11,7 +11,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class HomeTabOpen extends CommandRegisterSection {
+public class HomeTabOpen extends CommandRegister {
 
     public HomeTabOpen() {
         super(GlobalCommandHandler.HOME_TAB_OPEN);

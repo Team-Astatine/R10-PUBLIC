@@ -2,11 +2,11 @@ package org.Astatine.r10.Contents.PlayerInteraction.PlayerStatus.PlayerRespawnEv
 
 import org.Astatine.r10.Contents.EventRegister;
 import org.Astatine.r10.Enumeration.Type.ColorType;
+import org.Astatine.r10.Util.Function.Emoji;
 import org.Astatine.r10.Util.Function.StringComponentExchanger;
 import org.apache.commons.lang3.ObjectUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerRespawnEvent;
-
 
 public class RespawnMessageService extends StringComponentExchanger implements EventRegister {
     private Player player;
@@ -34,6 +34,12 @@ public class RespawnMessageService extends StringComponentExchanger implements E
 
         String comment = this.event.isAnchorSpawn() ? "정박기로 텔레포트 합니다" : "침대로 텔레포트 합니다";
 
-        playerSendMsgComponentExchanger(this.player, comment, ColorType.YELLOW);
+        this.player.sendMessage(
+            emojiMessage(
+                Emoji.CHECK, 
+                comment,
+                ColorType.WHITE_TO_RED7
+            )
+        );
     }
 }

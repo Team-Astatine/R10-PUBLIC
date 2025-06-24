@@ -10,12 +10,12 @@ import java.util.concurrent.TimeUnit;
 
 
 public class AsyncTaskRunner {
-    private static class ThreadPoolHolder {
+    private static class Holder {
         private static final AsyncTaskRunner INSTANCE = new AsyncTaskRunner();
     }
 
     public static AsyncTaskRunner getThreadPool() {
-        return ThreadPoolHolder.INSTANCE;
+        return Holder.INSTANCE;
     }
 
 

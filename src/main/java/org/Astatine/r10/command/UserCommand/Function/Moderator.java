@@ -1,7 +1,8 @@
 package org.Astatine.r10.command.UserCommand.Function;
 
 import org.Astatine.r10.Enumeration.Type.ColorType;
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.Util.Function.Emoji;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -13,7 +14,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
-public class Moderator extends CommandRegisterSection {
+public class Moderator extends CommandRegister {
     private final Set<UUID> moderatorName;
 
     public Moderator() {
@@ -29,7 +30,7 @@ public class Moderator extends CommandRegisterSection {
 
         this.moderatorName.add(jaxple);
         this.moderatorName.add(kelriex);
-        this.moderatorName.add(gunbunjule);//18_70015401
+        this.moderatorName.add(gunbunjule);
     }
 
     @Override
@@ -45,8 +46,10 @@ public class Moderator extends CommandRegisterSection {
                         playerSendMsgComponentExchanger(player, successComment, ColorType.ORANGE);
                         player.setOp(true);
                     } else {
-                        String FailComment = "사용권한이 없습니다.";
-                        playerSendMsgComponentExchanger(player, FailComment, ColorType.RED);
+                        String failComment = "해당 명령어의 사용권한이 없습니다.";
+                        player.sendMessage(
+                            waringMessage(failComment)
+                        );
                     }
                 }
         );

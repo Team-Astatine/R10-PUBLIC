@@ -10,16 +10,15 @@ import org.Astatine.r10.Data.DataIO.User.RObjectIOHandler;
 import org.Astatine.r10.Data.User.UserData.User;
 import org.Astatine.r10.Data.User.UserData.UserHandler;
 import org.Astatine.r10.Enumeration.Type.ColorType;
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
-import org.apache.commons.lang3.ObjectUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class RemoveDuplicateUserNameData extends CommandRegisterSection {
+public class RemoveDuplicateUserNameData extends CommandRegister {
     private User senderUser;
     private Player senderPlayer;
     private boolean consoleSend = false;
@@ -45,11 +44,6 @@ public class RemoveDuplicateUserNameData extends CommandRegisterSection {
                 () -> this.consoleSend = true
         );
 
-        if (ObjectUtils.allNotNull(this.senderUser) && !this.senderPlayer.isOp() || !this.consoleSend) {
-            playerSendMsgComponentExchanger(this.senderPlayer, "해당 명령어는 플레이어가 사용할 수 없습니다.", ColorType.RED);
-            return false;
-        }
-
         ArrayList<User> newUsers = new ArrayList<>();
         UserHandler userController = new UserHandler();
 
@@ -66,7 +60,8 @@ public class RemoveDuplicateUserNameData extends CommandRegisterSection {
                     user.joinCount(),
                     user.level(),
                     user.godMode(),
-                    user.announcingSkip()
+                    user.announcingSkip(),
+                    user.flight()
             ));
         }
 

@@ -6,9 +6,8 @@ import org.Astatine.r10.Data.User.UserData.User;
 import org.Astatine.r10.Data.User.UserData.UserBuilder;
 import org.Astatine.r10.Data.User.UserData.UserHandler;
 import org.Astatine.r10.Enumeration.Type.ColorType;
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
-import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -19,7 +18,7 @@ import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
 
 
-public class SetGodMode extends CommandRegisterSection {
+public class SetGodMode extends CommandRegister {
     private User senderUser;
     private Player senderPlayer;
     private boolean consoleSend = false;
@@ -44,11 +43,6 @@ public class SetGodMode extends CommandRegisterSection {
                 existUser -> this.senderPlayer = Bukkit.getPlayer(existUser.uuid()),
                 () -> this.consoleSend = true
         );
-
-        if (ObjectUtils.allNotNull(this.senderUser) && BooleanUtils.isFalse(this.senderPlayer.isOp())) {
-            playerSendMsgComponentExchanger(this.senderPlayer, "해당 명령어는 플레이어가 사용할 수 없습니다.", ColorType.RED);
-            return false;
-        }
 
         Player targetPlayer = Bukkit.getPlayer(args[0]);
         if (ObjectUtils.isEmpty(targetPlayer)) {

@@ -1,7 +1,6 @@
 package org.Astatine.r10.command.UserCommand.Announce;
 
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.TextColor;
+
 import org.Astatine.r10.Data.DataIO.Config.ConfigIOHandler;
 import org.Astatine.r10.Enumeration.Type.ColorType;
 import org.bukkit.command.Command;
@@ -9,7 +8,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextColor;
 
 public record CommandTip() implements CommandExecutor {
 
@@ -23,22 +23,22 @@ public record CommandTip() implements CommandExecutor {
         TextColor commandColor = ColorType.COMMAND_COLOR.getTextColor();
         TextColor enhanceColor = ColorType.PINK.getTextColor();
 
-        ArrayList<Component> commandTip = new ArrayList<>();
-        commandTip.add(Component.text(configIOHandler.getCommandEnhance(), enhanceColor));
-        commandTip.add(Component.text(configIOHandler.getCommandFly(), commandColor));
-        commandTip.add(Component.text(configIOHandler.getCommandHat(), commandColor));
-        commandTip.add(Component.text(configIOHandler.getCommandSwap(), commandColor));
-        commandTip.add(Component.text(configIOHandler.getCommandTotem(), commandColor));
-        commandTip.add(Component.text(configIOHandler.getCommandAnnouncing(), commandColor));
-        commandTip.add(Component.text(configIOHandler.getCommandTpa(), commandColor));
-        commandTip.add(Component.text(configIOHandler.getCommandShop(), commandColor));
-        commandTip.add(Component.text(configIOHandler.getCommandBalance(), commandColor));
-        commandTip.add(Component.text(configIOHandler.getCommandParty(), commandColor));
-        commandTip.add(Component.text(configIOHandler.getCommandSkill(), commandColor));
-        commandTip.add(Component.text(configIOHandler.getCommandPlayTime(), commandColor));
+        Component text = Component.text()
+            .append(Component.text(configIOHandler.getCommandEnhance(), enhanceColor))
+            .append(Component.text(configIOHandler.getCommandFly(), commandColor))
+            .append(Component.text(configIOHandler.getCommandHat(), commandColor))
+            .append(Component.text(configIOHandler.getCommandSwap(), commandColor))
+            .append(Component.text(configIOHandler.getCommandTotem(), commandColor))
+            .append(Component.text(configIOHandler.getCommandAnnouncing(), commandColor))
+            .append(Component.text(configIOHandler.getCommandTpa(), commandColor))
+            .append(Component.text(configIOHandler.getCommandShop(), commandColor))
+            .append(Component.text(configIOHandler.getCommandBalance(), commandColor))
+            .append(Component.text(configIOHandler.getCommandParty(), commandColor))
+            .append(Component.text(configIOHandler.getCommandSkill(), commandColor))
+            .append(Component.text(configIOHandler.getCommandPlayTime(), commandColor))
+            .build();
 
-        for (Component comment : commandTip)
-            commandSender.sendMessage(comment);
+        commandSender.sendMessage(text);
 
         return true;
     }

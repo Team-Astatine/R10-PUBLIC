@@ -1,15 +1,15 @@
 package org.Astatine.r10.command.Company.UserCommand;
 
-import org.Astatine.r10.Data.Company.CompanyData.Value.Company;
-import org.Astatine.r10.Data.Company.CompanyData.Value.CompanyController;
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.Data.Company.CompanyData.Company.Company;
+import org.Astatine.r10.Data.Company.CompanyData.Company.CompanyController;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class CompanyProperty extends CommandRegisterSection {
+public class CompanyProperty extends CommandRegister {
 
     public CompanyProperty() {
         super(GlobalCommandHandler.PROPERTY_COMPANY);

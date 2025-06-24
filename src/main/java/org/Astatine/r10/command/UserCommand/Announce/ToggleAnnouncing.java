@@ -4,14 +4,15 @@ import org.Astatine.r10.Data.User.UserData.User;
 import org.Astatine.r10.Data.User.UserData.UserBuilder;
 import org.Astatine.r10.Data.User.UserData.UserHandler;
 import org.Astatine.r10.Enumeration.Type.ColorType;
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.Util.Function.Emoji;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class ToggleAnnouncing extends CommandRegisterSection {
+public class ToggleAnnouncing extends CommandRegister {
 
     public ToggleAnnouncing() {
         super(GlobalCommandHandler.ANNOUNCING);
@@ -26,7 +27,13 @@ public class ToggleAnnouncing extends CommandRegisterSection {
         User targetUser = new UserHandler().readUser(((Player) commandSender).getUniqueId());
 
         String comment = targetUser.announcingSkip() ? "비활성화" : "활성화";
-        playerSendMsgComponentExchanger(commandSender, "공지 " + comment + " 완료", ColorType.YELLOW);
+        commandSender.sendMessage(
+            emojiMessage(
+                Emoji.CHECK, 
+                String.format("공지가 %s됐어요!",comment),
+                ColorType.YELLOW
+            )
+        );
 
         new UserBuilder(targetUser)
                 .isAnnouncingSkip(!targetUser.announcingSkip())

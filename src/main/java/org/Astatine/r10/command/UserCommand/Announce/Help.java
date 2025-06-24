@@ -27,7 +27,7 @@ public record Help() implements CommandExecutor {
                                     .color(ColorType.WHITE.getTextColor())
                                     )
                             .append(Component.text(configIOHandler.getHelp())
-                                    .color(ColorType.WHITE_TO_RED7.getTextColor())
+                                    .color(ColorType.GREEN.getTextColor())
                                     )
                             .decorate(TextDecoration.BOLD)
                             .build()

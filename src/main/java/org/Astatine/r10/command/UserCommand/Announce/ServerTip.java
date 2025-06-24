@@ -9,7 +9,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 
 public record ServerTip() implements CommandExecutor {
     @Override
@@ -19,18 +18,18 @@ public record ServerTip() implements CommandExecutor {
                              final @NotNull String[] strings) {
 
         ConfigIOHandler configIOHandler = ConfigIOHandler.getConfigIOHandler();
-        TextColor commonColor = ColorType.RED.getTextColor();
+        TextColor commonColor = ColorType.WHITE_TO_RED3.getTextColor();
 
-        ArrayList<Component> serverTip = new ArrayList<>();
-        serverTip.add(Component.text(configIOHandler.getHeartTip(), commonColor));
-        serverTip.add(Component.text(configIOHandler.getExtraHeartTip(), commonColor));
-        serverTip.add(Component.text(configIOHandler.getSteelLifeTip(), commonColor));
-        serverTip.add(Component.text(configIOHandler.getRaidTip(), commonColor));
-        serverTip.add(Component.text(configIOHandler.getWeaponTip(), commonColor));
-        serverTip.add(Component.text(configIOHandler.getExplosiveTip(), commonColor));
-
-        for (Component comment : serverTip)
-            commandSender.sendMessage(comment);
+        commandSender.sendMessage(
+        Component.text()
+                        .append(Component.text(configIOHandler.getHeartTip(), commonColor))
+                        .append(Component.text(configIOHandler.getExtraHeartTip(), commonColor))
+                        .append(Component.text(configIOHandler.getSteelLifeTip(), commonColor))
+                        .append(Component.text(configIOHandler.getRaidTip(), commonColor))
+                        .append(Component.text(configIOHandler.getWeaponTip(), commonColor))
+                        .append(Component.text(configIOHandler.getExplosiveTip(), commonColor))
+                        .build()
+        );
 
         return true;
     }

@@ -5,9 +5,8 @@ import java.util.Map;
 import org.Astatine.r10.Contents.Enhance.Enumeration.EnhanceItemAttributes;
 import org.Astatine.r10.Contents.Enhance.Processor.EnhanceUtil;
 import org.Astatine.r10.Enumeration.Type.ColorType;
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
-import org.apache.commons.lang3.BooleanUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
@@ -16,7 +15,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
-public class SetEnhance extends CommandRegisterSection {
+public class SetEnhance extends CommandRegister {
 
     public SetEnhance() {
         super(GlobalCommandHandler.ENHANCE_SET);
@@ -29,11 +28,6 @@ public class SetEnhance extends CommandRegisterSection {
                              final @NotNull String[] strings) {
 
         Player player = (Player) commandSender;
-
-        if (BooleanUtils.isFalse(commandSender.isOp())) {
-            playerSendMsgComponentExchanger(player, "해당 명령어는 플레이어가 사용할 수 없습니다.", ColorType.RED);
-            return false;
-        }
 
         int enhanceLevel = Integer.parseInt(strings[0]);
         if (enhanceLevel < 0 || enhanceLevel > 10) {

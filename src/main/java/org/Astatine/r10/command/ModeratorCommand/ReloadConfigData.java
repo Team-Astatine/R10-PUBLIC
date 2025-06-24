@@ -6,9 +6,8 @@ import org.Astatine.r10.R10;
 import org.Astatine.r10.Data.User.UserData.User;
 import org.Astatine.r10.Data.User.UserData.UserHandler;
 import org.Astatine.r10.Enumeration.Type.ColorType;
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
-import org.apache.commons.lang3.BooleanUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -16,7 +15,7 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 
-public class ReloadConfigData extends CommandRegisterSection {
+public class ReloadConfigData extends CommandRegister {
 
     private Player player;
     private boolean consoleSend = false;
@@ -42,12 +41,6 @@ public class ReloadConfigData extends CommandRegisterSection {
                 existUser -> this.player = Bukkit.getPlayer(existUser.uuid()),
                 () -> this.consoleSend = true
         );
-
-//        operation Check
-        if (BooleanUtils.isFalse(player.isOp()) && BooleanUtils.isFalse(this.consoleSend)) {
-            playerSendMsgComponentExchanger(player, "해당 명령어는 플레이어가 사용할 수 없습니다.", ColorType.RED);
-            return false;
-        }
 
         sendComment();
         R10.getPlugin(R10.class).configFileLoader();

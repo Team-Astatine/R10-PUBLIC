@@ -6,9 +6,13 @@ import org.Astatine.r10.Data.User.UserKillStatus.UserKillStatusBuilder;
 import org.Astatine.r10.Data.User.UserKillStatus.UserKillStatusHandler;
 import org.Astatine.r10.Enumeration.Type.BossType;
 import org.Astatine.r10.Enumeration.Type.ColorType;
+import org.Astatine.r10.Util.Function.Emoji;
 import org.Astatine.r10.Util.Function.StringComponentExchanger;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDeathEvent;
+
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextDecoration;
 
 public class BossRewardService extends StringComponentExchanger implements EventRegister {
     private final UserKillStatusHandler userKillStatusController = new UserKillStatusHandler();
@@ -57,16 +61,40 @@ public class BossRewardService extends StringComponentExchanger implements Event
         String playerName = this.bossSlayerPlayer.getName();
         String bossName = this.bossType.getBossName();
 
-        String comment;
+        Component comment;
         if (newHealthScale < MAX_HEALTH_SCALE)
-            comment = String.format("%s님이 %s를 처치하여 %s를 보상받았습니다.",
-                    playerName, bossName, this.bossType.getRewardHeartEmoji());
+            comment = Component.text()
+                            .append(Component.text(
+                                String.format("%s님이 %s를 처치해서 ",playerName, bossName))
+                                .color(ColorType.WHITE_TO_RED7.getTextColor())
+                                .decorate(TextDecoration.BOLD)
+                                )
+                            .append(Component.text(this.bossType.getRewardHeartEmoji())
+                                .color(ColorType.WHITE.getTextColor())
+                                )
+                            .append(Component.text("를 보상을 받았어요!")
+                                .color(ColorType.WHITE_TO_RED7.getTextColor())
+                                .decorate(TextDecoration.BOLD)
+                                )
+                            .build();
 
         else
-            comment = String.format("%s님이 %s를 처치하여 최대 체력이 되었습니다.",
-                    playerName, bossName);
+            comment = Component.text()
+                            .append(Component.text(
+                                String.format("%s님이 %s를 처치하여 최대 체력이 되었어요!!",playerName, bossName))
+                                )
+                            .color(ColorType.YELLOW.getTextColor())
+                            .decorate(TextDecoration.BOLD)
+                            .build();
 
-
-        playerSendMsgComponentExchanger(this.bossSlayerPlayer, comment, ColorType.WHITE_TO_RED7);
+        this.bossSlayerPlayer.sendMessage(
+            Component.text()
+                        .append(
+                            Emoji.EXPLODING_PARTY.getComponentTypeEmoji()
+                                .color(ColorType.WHITE.getTextColor())                
+                        )
+                        .append(comment)
+                        .build()
+        );        
     }
 }

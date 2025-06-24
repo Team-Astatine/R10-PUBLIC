@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.Astatine.r10.R10;
 import org.Astatine.r10.Enumeration.Type.ColorType;
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
@@ -21,7 +21,7 @@ import org.jetbrains.annotations.NotNull;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
 
-public class RegistBindItem extends CommandRegisterSection {
+public class RegistBindItem extends CommandRegister {
 
     public RegistBindItem() {
         super(GlobalCommandHandler.BINDING_ITEM);

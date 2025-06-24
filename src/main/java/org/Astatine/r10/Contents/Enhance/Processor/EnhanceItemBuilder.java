@@ -1,5 +1,6 @@
 package org.Astatine.r10.Contents.Enhance.Processor;
 
+import org.apache.commons.lang3.ObjectUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -23,6 +24,11 @@ public class EnhanceItemBuilder {
     }
 
     public EnhanceItemBuilder enhanceItem(ItemStack enhanceItem) {
+        if (ObjectUtils.isEmpty(enhanceItem)) {
+            this.enhanceItem = null;
+            return this;
+        }
+        
         this.enhanceItem = EnhanceUtil.initItemCustomModelData(enhanceItem); //CheckUp hasCustomModelData
         return this;
     }

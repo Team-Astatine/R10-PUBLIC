@@ -1,11 +1,11 @@
 package org.Astatine.r10.command.Company.UserCommand;
 
+import org.Astatine.r10.Data.Company.CompanyData.Company.Company;
+import org.Astatine.r10.Data.Company.CompanyData.Company.CompanyAccessManager;
+import org.Astatine.r10.Data.Company.CompanyData.Company.CompanyController;
 import org.Astatine.r10.Data.Company.CompanyData.Enumeration.BusinessSize;
-import org.Astatine.r10.Data.Company.CompanyData.Value.Company;
-import org.Astatine.r10.Data.Company.CompanyData.Value.CompanyAccessManager;
-import org.Astatine.r10.Data.Company.CompanyData.Value.CompanyController;
 import org.Astatine.r10.Util.EssentialsUtil;
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.UUID;
 
-public class CloseCompany extends CommandRegisterSection {
+public class CloseCompany extends CommandRegister {
 
     public CloseCompany() {
         super(GlobalCommandHandler.CLOSE_COMPANY);

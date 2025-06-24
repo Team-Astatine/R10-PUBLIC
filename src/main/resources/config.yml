@@ -1,19 +1,19 @@
 #Astatine Online
 link_setting:
-  minelist: 'https://minelist.kr/servers/astn.kr:1229'
-  discord: 'https://discord.com/invite/5UtVAMJUZe'
-  notion: 'https://jaxple.notion.site/Astn-kr-e000a5d52aaa4611a63fd62629ea0f36?pvs=4'
+  minelist: ''
+  discord: ''
+  notion: ''
 
 world_setting:
   motd: 'ASTATINE ONLINE'
 
 message:
-  commandHelp: '[/커뮤니티, /tip, /명령어]로 기능을 확인, Shift + F(Swap) 키로 메뉴를 이용할 수 있어요!'
+  commandHelp: '[/커뮤니티, /서버팁, /명령어]로 기능을 확인, Shift + F(Swap) 키로 메뉴를 이용할 수 있어요!'
   commandCommunity: '/커뮤니티'
   mineListVote: '[클릭] > 마인리스트 추천'
   discordInvite: '[클릭] > 디스코드 참가'
   serverGuideNotion: '[클릭] > 서버 플레이 가이드'
-  commandServerTip: '/tip'
+  commandServerTip: '/서버팁'
   heartTip: '체력은 하트 10칸을 1줄로 보고, 최대 3줄(30하트), 최소 2하트입니다.'
   extraHeartTip: '보스 처치 시 추가 체력: 엔더 드래곤 +1하트, 위더 +3하트, 워든 +2하트.'
   steelLifeTip: '플레이어 처치 시 1하트 약탈, 약탈된 플레이어는 1하트를 잃습니다.'

@@ -1,6 +1,6 @@
 package org.Astatine.r10.command.UserCommand.Function;
 
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-public class OffHandItemSwapFunction extends CommandRegisterSection {
+public class OffHandItemSwapFunction extends CommandRegister {
 
     public OffHandItemSwapFunction() {
         super(GlobalCommandHandler.SWAP_HAND_TO_OFFHAND);

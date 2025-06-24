@@ -50,7 +50,7 @@ import org.bukkit.command.CommandExecutor;
  * 명령어 추가방법
  * resources/plugin.yml 에 명령어 추가합니다.
  * @see GlobalCommandHandler 에 명령어 등록 및 명령 시 발생할 Instance 추가합니다.
- * @see CommandRegisterSection 을 extend하여 명령어 입력 시 execute 할 Instance를 추가합니다.
+ * @see CommandRegister 을 extend하여 명령어 입력 시 execute 할 Instance를 추가합니다.
  *
  * @implSpec {@link R10} 에 registerCommandAndEvent() 함수에서 명령어를 일괄 등록합니다.
  */
@@ -59,7 +59,7 @@ public enum GlobalCommandHandler {
     CREATE_COMPANY("회사설립", new CreateCompany()),
     CLOSE_COMPANY("회사폐업", new CloseCompany()),
 
-    PROPERTY_COMPANY("소속회사조회", new CompanyProperty()),
+    PROPERTY_COMPANY("회사소속조회", new CompanyProperty()),
 
     RECRUIT_EMPLOYEE("회사채용", new RecruitEmployee()),
     DISMISS_EMPLOYEE("회사해고", new DismissEmployee()),
@@ -84,7 +84,7 @@ public enum GlobalCommandHandler {
     SWAP_HAND_TO_OFFHAND("swap", new OffHandItemSwapFunction()),
     TOTEM_STACKING("totem", new StackingTotemFunction()),
     SHOW_OFF_STUFF("자랑하기", new ShowOffStuff()),
-    FLY("fly", new ToggleFly()),
+    FLIGHT("flight", new ToggleFly()),
 
 
 //    UI

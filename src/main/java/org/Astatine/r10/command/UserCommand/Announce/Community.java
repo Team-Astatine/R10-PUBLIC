@@ -2,6 +2,7 @@ package org.Astatine.r10.command.UserCommand.Announce;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.ClickEvent;
+import net.kyori.adventure.text.event.HoverEvent;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 
@@ -15,61 +16,47 @@ import org.jetbrains.annotations.NotNull;
 
 public record Community() implements CommandExecutor {
 
-    @Override
-    public boolean onCommand(final @NotNull CommandSender commandSender,
-                             final @NotNull Command command,
-                             final @NotNull String s,
-                             final @NotNull String[] strings) {
+        @Override
+        public boolean onCommand(final @NotNull CommandSender commandSender,
+                                final @NotNull Command command,
+                                final @NotNull String s,
+                                final @NotNull String[] strings) {
 
-        ConfigIOHandler configIOHandler = ConfigIOHandler.getConfigIOHandler();
+                ConfigIOHandler configIOHandler = ConfigIOHandler.getConfigIOHandler();
 
-        String notionLink = configIOHandler.getNotionLink();
-        String discordLink = configIOHandler.getDiscordInviteLink();
-        String mineListLink = configIOHandler.getMinelistLink();
+                String notionLink = configIOHandler.getNotionLink();
+                String discordLink = configIOHandler.getDiscordInviteLink();
+                String mineListLink = configIOHandler.getMinelistLink();
 
-        TextColor notionColor = ColorType.NOTION_COLOR.getTextColor();
-        TextColor discordColor = ColorType.DISCORD_COLOR.getTextColor();
-        TextColor mineListColor = ColorType.GREEN.getTextColor();
+                TextColor notionColor = ColorType.NOTION_COLOR.getTextColor();
+                TextColor discordColor = ColorType.DISCORD_COLOR.getTextColor();
+                TextColor mineListColor = ColorType.GREEN.getTextColor();
 
-        commandSender.sendMessage(
-        Component.text()
-                        .append(Emoji.MINELIST.getComponentTypeEmoji()
-                                .color(ColorType.WHITE.getTextColor())
-                                )
-                        .append(Component.text(configIOHandler.getMinelistLinkComment())
-                                .color(mineListColor)
-                                .clickEvent(ClickEvent.openUrl(mineListLink))
-                                .decorate(TextDecoration.UNDERLINED)
-                                )
-                        .build()
+                sendLinkMessage(commandSender, Emoji.MINELIST,
+                configIOHandler.getMinelistLinkComment(), mineListLink, mineListColor);
+                sendLinkMessage(commandSender, Emoji.DISCORD,
+                configIOHandler.getDiscordInviteComment(), discordLink, discordColor);
+                sendLinkMessage(commandSender, Emoji.NOTION,
+                configIOHandler.getNotionLinkComment(), notionLink, notionColor);
+
+                return true;
+        }
+
+        private void sendLinkMessage(CommandSender sender, Emoji emoji, String comment, String url, TextColor color) {
+        sender.sendMessage(
+                Component.text()
+                .append(emoji.getComponentTypeEmoji()
+                        .color(ColorType.WHITE.getTextColor())
+                )
+                .append(Component.text(comment)
+                        .color(color)
+                        .clickEvent(ClickEvent.openUrl(url))
+                        .hoverEvent(HoverEvent.showText(
+                                Component.text(url + " 열기"))
+                        )
+                        .decorate(TextDecoration.UNDERLINED)
+                )
+                .build()
         );
-
-        commandSender.sendMessage(
-        Component.text()
-                        .append(Emoji.DISCORD.getComponentTypeEmoji()
-                                .color(ColorType.WHITE.getTextColor())
-                                )
-                        .append(Component.text(configIOHandler.getDiscordInviteComment())
-                                .color(discordColor)
-                                .clickEvent(ClickEvent.openUrl(discordLink))
-                                .decorate(TextDecoration.UNDERLINED)
-                                )
-                        .build()
-        );
-
-        commandSender.sendMessage(
-        Component.text()
-                        .append(Emoji.NOTION.getComponentTypeEmoji()
-                                .color(ColorType.WHITE.getTextColor())
-                                )
-                        .append(Component.text(configIOHandler.getNotionLinkComment())
-                                .color(notionColor)
-                                .clickEvent(ClickEvent.openUrl(notionLink))
-                                .decorate(TextDecoration.UNDERLINED)
-                                )
-                        .build()
-        );
-
-        return true;
     }
 }

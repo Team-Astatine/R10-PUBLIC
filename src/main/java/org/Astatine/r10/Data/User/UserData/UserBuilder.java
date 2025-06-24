@@ -18,6 +18,7 @@ public class UserBuilder {
     private int level;
     private boolean godMode;
     private boolean announcingSkip;
+    private boolean flight;
 
     public UserBuilder() {
     }
@@ -31,6 +32,7 @@ public class UserBuilder {
         level(user.level());
         isGodMode(user.godMode());
         isAnnouncingSkip(user.announcingSkip());
+        isFlight(user.flight());
     }
 
     //    First Time add User
@@ -43,6 +45,7 @@ public class UserBuilder {
         level(player.getLevel());
         isGodMode(false);
         isAnnouncingSkip(true);
+        isFlight(true);
     }
 
     public UserBuilder uuid(UUID uuid) {
@@ -95,6 +98,11 @@ public class UserBuilder {
         return this;
     }
 
+    public UserBuilder isFlight(boolean isFlight) {
+        this.flight = isFlight;
+        return this;
+    }
+
     public User build() {
         return new User(
                 uuid,
@@ -104,7 +112,8 @@ public class UserBuilder {
                 playTime,
                 level,
                 godMode,
-                announcingSkip
+                announcingSkip,
+                flight
         );
     }
 

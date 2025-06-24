@@ -1,12 +1,12 @@
 package org.Astatine.r10.command.Company.UserCommand;
 
-import org.Astatine.r10.command.CommandRegisterSection;
+import org.Astatine.r10.command.CommandRegister;
 import org.Astatine.r10.command.GlobalCommandHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
-public class DepositCompany extends CommandRegisterSection {
+public class DepositCompany extends CommandRegister {
 
     public DepositCompany() {
         super(GlobalCommandHandler.DEPOSIT_COMPANY);

@@ -31,8 +31,8 @@ public class JoinMessageService extends StringComponentExchanger implements Even
         this.userKillStatus = new UserKillStatusHandler().readUser(this.joinPlayer.getUniqueId());
         
         this.title = Title.title(
-                componentExchanger("최신버전 무정부 플라이 반야생", ColorType.PURPLE),
-                componentExchanger("Shift + F 를 눌러 메뉴를 열 수 있습니다.", ColorType.ORANGE)
+                componentExchanger("Shift + F 를 눌러 메뉴를 열 수 있습니다.", ColorType.ORANGE),
+                componentExchanger("최신버전 무정부 플라이 반야생", ColorType.PURPLE)
         );
 
         int kills = userKillStatus.killCount();

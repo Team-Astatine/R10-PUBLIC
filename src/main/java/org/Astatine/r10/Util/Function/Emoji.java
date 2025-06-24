@@ -13,7 +13,8 @@ public enum Emoji {
     NOTION('\ue007'),
     DISCORD('\ue008'),
     MINELIST('\ue009'),
-    CROSSED_SWORDS('\ue010');
+    CROSSED_SWORDS('\ue010'),
+    CHECK('\ue011');
 
     private final char emojiChar;
     

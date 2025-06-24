@@ -49,11 +49,9 @@ public class RestrictedStackingTotemClickHandler extends StringComponentExchange
         if (this.getCurrentCursorHoldItem.getAmount() < 2)
             return;
 
-        playerSendMsgComponentExchanger(
-                clicker,
-                "겹쳐진 토템은 [스왑키, Shift + 클릭] 으로만 옮길 수 있습니다.",
-                ColorType.RED
-        );
+        clicker.sendMessage(
+            waringMessage("겹쳐진 토템은 [스왑키, Shift + 클릭] 으로만 옮길 수 있어요.")
+            );
         this.event.setCancelled(true);
     }
 }

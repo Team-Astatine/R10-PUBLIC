@@ -1,4 +1,4 @@
-package org.Astatine.r10.Data.Company.CompanyData.Value;
+package org.Astatine.r10.Data.Company.CompanyData.Company;
 
 import org.apache.commons.lang3.ObjectUtils;
 
